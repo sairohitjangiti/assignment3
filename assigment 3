@@ -1,0 +1,305 @@
+question 1  
+For the given JSON iterate over all for loops (for, for in, for of, forEach)
+
+
+Categories of Loops in JavaScript
+The ‘For’ Loop
+The For Loop comes first because of its simplicity and ease of use. It is a very user-friendly kind of loop that runs with a method of using a counter. 
+
+The value is first set with an appropriate condition, which is also called ‘initializing a loop’. Next, the terminal or final value is specified. The For Loop makes things really easy when you need to run a set of codes multiple times.
+
+The For Loop is further divided into:‍
+
+1. Using an array
+The following piece of code is a perfect example of how to use a for loop through an array. 
+
+var numbers = [ 10, 20, 30, 40, 50] 
+for (var i=0; i < numbers.length; i++) {
+   console.log(numbers[i])
+}
+‍
+
+Here, I have used all the numbers in the form of an array, then printed each of them in a console window. In the same way, you can make a loop through an array of strings.
+
+2. Making a loop through DOM elements
+The For loop can also be used to alter colors. Consider a situation where you want to choose a particular color for all the anchors of your page. In order to do so, use the following piece of code.
+ 
+var elements = document.querySelectorAll("a");
+for (var i=0; i<elements.length; i++) {
+   elements[i].style.color = "red";
+}
+‍
+
+When you look at the above code, things might not seem very clear. 
+
+I first used `document.querySelectorAll("a")` to get all of my anchors in the array format. Once that was done, the next step looped all the array and changed its color. 
+
+Here, we used the color red, but you may choose any color in the code and the anchors of your page will appear that particular color. 
+
+In order to better understand this visually, here’s the output of when I ran this code on the W3Schools site:
+
+
+You can see that the color of the anchors has been changed to red. 
+
+The ‘For In’ Loop
+Another way of looping is the For In Loop. Unlike the For Loop, this loop won’t be using a counter. So this makes the whole process even more simple and hassle-free. In fact, the For In Loop is essentially a simplified version of the For Loop.
+
+The following are different ways of looping using the For In technique.
+
+1. Looping through an Object Property
+Here’s an example; you’ve got an object containing some properties and you need to look up each property and the value that it carries. Here’s how you would use the For In Loop to do so:
+var person = {
+   fname: "Nick",
+   lname: "Jonas",
+   age: 26
+}; 
+for (let x in person) {
+   console.log(x + ": "+ person[x])
+}
+‍
+
+
+Looping Using JSON
+JSON stands for JavaScript Object Notation. It’s a light format for storing and transferring data from one place to another. So in looping, it is one of the most commonly used techniques for transporting data that is the array format or in attribute values. 
+
+Here’s an example that demonstrates the above concept.
+
+jsonData ={
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+‍
+
+JavaScript Object Notation also consists of a root, namely, the jsonData. It further contains three nodes that are called, “one”, “two”, and “three”. 
+
+Here’s how you can withdraw a piece of information from JSON:
+
+var json = {
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+};
+for(var key in json.jsonData) {
+   for (var key1 in json.jsonData[key]) {
+       console.log(json.jsonData[key][key1])
+   }
+}
+‍
+
+Above, I used two For In Loops to make use of JSON and extract information from it. One of those loops is the outer loop that runs three times. If you’re wondering why it needs to run three times, that’s because it has to cover the above-mentioned nodes.
+
+The second loop is the inner loop which is meant to cover all the internal values. These internal values are those which are inside the three nodes. Once you run the code, you will get these kinds of results:
+
+
+JSON Explained
+If we go further in depth, there are a few more things you need to know about JSON.  The code that we just ran can also be expressed by including ‘[]’ to contain the above three nodes.
+
+Here’s how it’s done:
+
+jsonData:  [
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+]
+‍
+
+Then, in the following piece of code, a blend of the two looping techniques of For and For In are used to withdraw all the information from JSON.
+
+var json = {
+   jsonData:  [
+       {one: [11, 12, 13, 14, 15]},
+       {two: [21, 22, 23]},
+       {three: [31, 32]}
+   ]
+}; 
+for (var i=0; i<json.jsonData.length; i++) {
+   for (var key in json.jsonData[i]) {
+       for (var j= 0; j<json.jsonData[i][key].length; j++) {
+           console.log(json.jsonData[i][key][j])
+       }
+   }
+}
+‍
+
+Types of Loops and Their Uses
+Now let’s have a look at different types of Loops and their uses. We shall discuss the “While” Loop, the “Do While Loop” and the “The ForEach() Loop”.‍
+
+1. The “While” Loop
+A While Loop also doesn’t have a counter and only runs if the specified condition is true.  Here’s an example demonstrating the while loop where the loop runs till infinity:
+
+var infiniteValue = true;
+while (infiniteValue) {
+   console.log("Infinite")
+}
+‍
+
+
+2. Do While Loop
+In this loop, there’s a defined condition that needs to be checked at the end of the process.
+
+Here’s how you can use the Do While Loop in order to loop through XML(Extensible Markup Language):
+
+
+
+3. The ForEach() Loop
+This method is used for looping through an array element. Here’s an example of this:
+
+var names = ["jerry", "tom", "pluto", "micky", "mini"];
+names.forEach(function1);
+function function1(currentValue, index) {
+   console.log("Index in array is: "+index + " ::  Value is: "+currentValue);
+}
+‍
+
+
+Looping through JSON in more detail with examples
+Example 1:
+We're making a list of books and we enter the title as “Lord of the Rings” and the year as “1994“and the count of pages as “3000”. Similarly, a large number of objects can be created and once it’s done, we will have a large database:
+
+var books = [
+   {
+       title: "Lord of the Rings",
+       year: 1994,
+       pages: 3000
+   },
+   {
+       title: "1984",
+       year: 1984,
+       pages: 2000
+   },
+   {
+       title: "Art of war",
+       year: 2000,
+       pages: 5000
+   }
+]
+‍
+
+Now different things can be done with this database.
+
+For example;
+
+alert(books.length);
+‍
+
+When we run this, the browser will display three. Essentially, with this, we checked that there are three objects in this array.
+
+ 2 questi0n  RESUME 0N JS0N DATA
+
+{
+  "basics": {
+    "name": " JANGITI SAI R0HITH REDDY",
+    "label": "",
+    "picture": "",
+    "email": "rohithreddyjangiti@gmail.com",
+    "phone": "7675868094",
+    "degree": "btech in civil",
+    "website": "http//r0hith reddy.c0m",
+    "summary": "im adevel0per.",
+    "location": {
+      "address": "siddipet",
+      "postalCode": "505530",
+      "city": "siddipet",
+      "countryCode": "india",
+      "region": "telangana"
+    },
+    "profiles": [
+      {
+        "network": "jangiti sai r0hith reddy face b00k pr0file",
+        "username": "saireddy",
+        "url": "www.sai reddy.com"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "guvi",
+      "position": "fr0nt end devel0per",
+      "website": "www.guvi/saireddy.c0m",
+      "startDate": 2021-07-16",
+      "endDate": "w0rking still",
+      "summary": "im certified full stack devel0per",
+      
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "guvi",
+      "position": "fr0nt end devel0per",
+      "website": "www.guvi.c0m",
+      "startDate": "19-01-2021",
+      "endDate": "still w0rking",
+      "summary": "A im certfied develper",
+
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution"tkr engg c0llege ",
+      "area": "hyderbad",
+      "studyType": "",
+      "startDate": "2017",
+      "endDate": "2021",
+      "gpa": " 6.5",
+      "courses": [
+        ""
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "best engineer",
+      "date": "07-19-1999",
+      "awarder": "kcr telangana cm",
+      "summary": "i g0t this award   f0r my hard w0rk"
+    }
+  ],
+  "publications": [
+    {
+      "name": "ips  ",
+      "publisher": "sai reddy",
+      "releaseDate": "2005",
+      "website": "www.ips g0al.c0m",
+      "summary": "this b00k ab0ut my  ips dream"      
+    }
+  ],
+  "skills": [
+    {
+      "name": "java script",
+      "level": "",
+      "keywords": ['Java', 'C++', etc)"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "telugu",
+      "fluency": "g00d"
+    }
+  ],
+  "interests": [
+    {
+      "name": "cricket",
+      "keywords": [
+        "'Cricket', 'Football', 'Golf')"
+      ]
+    }
+  ]
+  
+  
+  @2@22@2@@@22@@@22@@
+  
+ 3 questi0n   Read about the difference between window, screen and document in java script
+ 
+ Window is the main JavaScript object root, aka the global object in a browser, and it can also be treated as the root of the document object model. You can access it as window.
+
+window.screen or just screen is a small information object about physical screen dimensions.
+
+window.document or just document is the main object of the potentially visible (or better yet: rendered) document object model/DOM.
+
+ 
+
